@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZZZ Skincare - Clean Beauty, Dermatologist Tested</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #2c2c2c;
+            background-color: #fafafa;
+            line-height: 1.6;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f1ed 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #8b7355 0%, #c9a961 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #c9a961;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #8b7355, #c9a961);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #8b7355 0%, #c9a961 100%);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 115, 85, 0.3);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #f5f1ed 0%, #e8dfd6 50%, #f9f5f0 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(139, 115, 85, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -30px;
+            left: -30px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(201, 169, 97, 0.15);
+            color: #8b7355;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin: 1rem 0;
+            color: #2c2c2c;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #555;
+            margin: 1.5rem 0;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8b7355 0%, #c9a961 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(139, 115, 85, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 115, 85, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #8b7355;
+            padding: 1rem 2rem;
+            border: 2px solid #8b7355;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #8b7355;
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            background: white;
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+        }
+
+        .about-text p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8b7355 0%, #c9a961 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .feature-item h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+            color: #2c2c2c;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #f5f1ed 0%, #e8dfd6 100%);
+            height: 400px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '🌿';
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* PRODUCTS SECTION */
+        .products {
+            background: linear-gradient(135deg, #fafafa 0%, #f5f1ed 100%);
+            padding: 5rem 2rem;
+        }
+
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .swiper {
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(139, 115, 85, 0.15);
+        }
+
+        .product-image {
+            background: linear-gradient(135deg, #f5f1ed 0%, #e8dfd6 100%);
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: attr(data-emoji);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .product-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-tag {
+            display: inline-block;
+            background: rgba(201, 169, 97, 0.15);
+            color: #8b7355;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            width: fit-content;
+        }
+
+        .product-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2c2c2c;
+        }
+
+        .product-content p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .product-benefits {
+            font-size: 0.85rem;
+            color: #8b7355;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #8b7355;
+            margin-bottom: 1rem;
+        }
+
+        .product-btn {
+            background: linear-gradient(135deg, #8b7355 0%, #c9a961 100%);
+            color: white;
+            border: none;
+            padding: 0.7rem;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .product-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(139, 115, 85, 0.3);
+        }
+
+        /* DERMATOLOGIST SECTION */
+        .dermatologist {
+            background: white;
+            padding: 5rem 2rem;
+        }
+
+        .derma-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .derma-image {
+            background: linear-gradient(135deg, #e8dfd6 0%, #f5f1ed 100%);
+            height: 400px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .derma-image::before {
+            content: '🔬';
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .derma-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+        }
+
+        .derma-content p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .derma-badges {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #f5f1ed 0%, #e8dfd6 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border-left: 4px solid #8b7355;
+        }
+
+        .badge h4 {
+            font-size: 0.95rem;
+            color: #8b7355;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .badge p {
+            font-size: 0.85rem;
+            color: #666;
+            margin: 0;
+        }
+
+        /* NEWSLETTER SECTION */
+        .newsletter {
+            background: linear-gradient(135deg, #8b7355 0%, #c9a961 100%);
+            padding: 4rem 2rem;
+            color: white;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            background: rgba(255, 255, 255, 0.95);
+            color: #2c2c2c;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        .btn-subscribe {
+            width: 100%;
+            padding: 0.9rem;
+            background: rgba(0, 0, 0, 0.15);
+            color: white;
+            border: 2px solid white;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-subscribe:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.02);
+        }
+
+        .form-status {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            min-height: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .form-status.show {
+            opacity: 1;
+        }
+
+        /* UPDATE EMAIL SECTION */
+        .email-update {
+            background: white;
+            padding: 3rem 2rem;
+            margin-top: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .email-update h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+            text-align: center;
+        }
+
+        .email-update p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .email-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .email-form-row input {
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .email-form-row input:focus {
+            outline: none;
+            border-color: #8b7355;
+            box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+        }
+
+        .btn-update {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #8b7355 0%, #c9a961 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-update:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(139, 115, 85, 0.3);
+        }
+
+        .update-status {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            text-align: center;
+            min-height: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: #8b7355;
+        }
+
+        .update-status.show {
+            opacity: 1;
+        }
+
+        /* CTA SECTION */
+        .cta-final {
+            background: linear-gradient(135deg, #f5f1ed 0%, #e8dfd6 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-final h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+        }
+
+        .cta-final p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button-large {
+            background: linear-gradient(135deg, #8b7355 0%, #c9a961 100%);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(139, 115, 85, 0.3);
+            display: inline-block;
+        }
+
+        .cta-button-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(139, 115, 85, 0.4);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #2c2c2c;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #c9a961;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .about-container,
+            .derma-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .derma-badges {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .email-form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-final h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .about, .products, .dermatologist, .newsletter, .cta-final {
+                padding: 3rem 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #8b7355;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #8b7355;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <div class="logo">ZZZ Skincare</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#dermatologist">Science</a></li>
+                <li><a href="#newsletter" class="cta-button">Join Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-tag">Q3 LAUNCH 2024</div>
+            <h1>Sleep Better, Glow Better</h1>
+            <p>Discover ZZZ—the revolutionary online-only skincare brand formulated with clean ingredients and dermatologist-tested excellence. Perfect for your skin's nighttime renewal.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.getElementById('newsletter').scrollIntoView({behavior: 'smooth'})">Get Early Access</button>
+                <button class="btn-secondary" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Explore Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <h2>About ZZZ Skincare</h2>
+            <p>We're redefining skincare for the modern woman. Clean, effective, and exclusively online.</p>
+        </div>
+        <div class="about-container">
+            <div class="about-text">
+                <h3>Why ZZZ?</h3>
+                <p>ZZZ Skincare is designed for women aged 25–40 who demand quality without compromise. We believe that better sleep means better skin, and better skin means better confidence.</p>
+                <p>Our mission is simple: deliver dermatologist-tested, clean skincare directly to you online, without intermediaries or inflated retail markups.</p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4>100% Clean Ingredients</h4>
+                            <p>No parabens, sulfates, or harmful chemicals</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4>Dermatologist Tested</h4>
+                            <p>Clinically proven formulations and safety</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4>Direct to You</h4>
+                            <p>Fast, discreet shipping to Malaysia & Singapore</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <h4>Beauty Influencer Approved</h4>
+                            <p>Trusted by top regional beauty voices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image" data-emoji="💤"></div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products" id="products">
+        <div class="products-container">
+            <div class="section-header">
+                <h2>Our Core Collections</h2>
+                <p>Thoughtfully formulated serums and moisturizers for nighttime restoration</p>
+            </div>
+            
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <!-- Product 1 -->
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-image" data-emoji="💧"></div>
+                            <div class="product-content">
+                                <span class="product-tag">SERUM</span>
+                                <h3>Deep Renewal Serum</h3>
+                                <p>Hyaluronic acid complex with botanical extracts. Restores skin hydration and elasticity while you sleep.</p>
+                                <div class="product-benefits">✓ Hyper-hydrating ✓ Anti-aging</div>
+                                <div class="product-price">RM 89</div>
+                                <button class="product-btn" onclick="handleProductClick('Deep Renewal Serum')">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-image" data-emoji="🌸"></div>
+                            <div class="product-content">
+                                <span class="product-tag">SERUM</span>
+                                <h3>Rose Elixir Serum</h3>
+                                <p>Rose extract with vitamin C and niacinamide. Brightens dull skin and evens tone overnight.</p>
+                                <div class="product-benefits">✓ Brightening ✓ Tone-evening</div>
+                                <div class="product-price">RM 99</div>
+                                <button class="product-btn" onclick="handleProductClick('Rose Elixir Serum')">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-image" data-emoji="🌿"></div>
+                            <div class="product-content">
+                                <span class="product-tag">MOISTURIZER</span>
+                                <h3>Night Cream Luxe</h3>
+                                <p>Lightweight yet deeply nourishing cream with bakuchiol and peptides. Your skin's regeneration partner.</p>
+                                <div class="product-benefits">✓ Deep moisturizing ✓ Firming</div>
+                                <div class="product-price">RM 129</div>
+                                <button class="product-btn" onclick="handleProductClick('Night Cream Luxe')">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-image" data-emoji="✨"></div>
+                            <div class="product-content">
+                                <span class="product-tag">MOISTURIZER</span>
+                                <h3>Silk Veil Moisturizer</h3>
+                                <p>Squalane-based with chamomile extract. Creates a protective barrier while allowing skin to breathe.</p>
+                                <div class="product-benefits">✓ Barrier-strengthening ✓ Calming</div>
+                                <div class="product-price">RM 119</div>
+                                <button class="product-btn" onclick="handleProductClick('Silk Veil Moisturizer')">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-image" data-emoji="🎁"></div>
+                            <div class="product-content">
+                                <span class="product-tag">BUNDLE</span>
+                                <h3>Starter Bundle</h3>
+                                <p>Complete night routine: Serum + Moisturizer. The perfect introduction to ZZZ skincare.</p>
+                                <div class="product-benefits">✓ Best value ✓ Full routine</div>
+                                <div class="product-price">RM 189</div>
+                                <button class="product-btn" onclick="handleProductClick('Starter Bundle')">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DERMATOLOGIST SECTION -->
+    <section class="dermatologist" id="dermatologist">
+        <div class="section-header">
+            <h2>Science You Can Trust</h2>
+            <p>Every ZZZ product is dermatologist-tested and clinically proven</p>
+        </div>
+        <div class="derma-container">
+            <div class="derma-image"></div>
+            <div class="derma-content">
+                <h3>Dermatologist-Tested Excellence</h3>
+                <p>We don't just make skincare—we back it with science. Every ZZZ formula has been rigorously tested in independent dermatology labs to ensure safety, efficacy, and compatibility with all skin types.</p>
+                <p>Our commitment to clean beauty means no compromise on results. We use pharmaceutical-grade ingredients and exclude harmful chemicals that compromise skin health.</p>
+                
+                <div class="derma-badges">
+                    <div class="badge">
+                        <h4>Clinical Trials</h4>
+                        <p>Proven results in 4+ weeks</p>Jefferson's "I have a Dream" and Martin Luther King Jr.'s immense legacy, which continues to inspire millions globally.
+                    </div>
+                    <div class="badge">
+                        <h4>Hypoallergenic</h4>
+                        <p>Gentle on sensitive skin</p>
+                    </div>
+                    <div class="badge">
+                        <h4>Cruelty-Free</h4>
+                        <p>Never tested on animals</p>
+                    </div>
+                    <div class="badge">
+                        <h4>Vegan Formulas</h4>
+                        <p>100% plant-based actives</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="newsletter" id="newsletter">
+        <div class="newsletter-container">
+            <h2>Join the ZZZ Community</h2>
+            <p>Get exclusive early-bird discounts, skincare tips, and beauty influencer collaborations. Plus, 15% off your first order!</p>
+            
+            <form id="newsletterForm" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <input type="text" id="regName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="regEmail" placeholder="Your Email Address" required>
+                </div>
+                <button type="submit" class="btn-subscribe">Unlock Early Access</button>
+                <div class="form-status" id="registerStatus"></div>
+            </form>
+
+            <div class="email-update">
+                <h3>Already Registered?</h3>
+                <p>Update your email address here</p>
+                <form id="updateForm" onsubmit="handleUpdateEmail(event)">
+                    <div class="email-form-row">
+                        <input type="email" id="oldEmail" placeholder="Old Email Address" required>
+                        <input type="email" id="newEmail" placeholder="New Email Address" required>
+                    </div>
+                    <button type="submit" class="btn-update">Update Email</button>
+                    <div class="update-status" id="updateStatus"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="cta-final">
+        <h2>Ready to Transform Your Skincare?</h2>
+        <p>Join thousands of women across Malaysia and Singapore who are already experiencing the ZZZ difference. Clean beauty, science-backed results, delivered online.</p>
+        <button class="cta-button-large" onclick="window.location.href='#newsletter'">Shop Now – Q3 Launch</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#dermatologist">Science</a>
+            <a href="#newsletter">Subscribe</a>
+            <a href="mailto:hello@zzzskincare.com">Contact</a>
+        </div>
+        <p>&copy; 2024 ZZZ Skincare. Clean Beauty for Modern Women.</p>
+        <p style="font-size: 0.85rem; opacity: 0.7;">Available in Malaysia & Singapore | Fast, Discreet Shipping</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Get site ID from URL
+        const siteId = new URLSearchParams(window.location.search).get('id') || '';
+
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+            },
+        });
+
+        // Register User Function
+        async function registerUser(email, name) {
+            try {
+                const res = await fetch('https://techtravelthink.app.n8n.cloud/webhook/user-register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'register',
+                        email,
+                        name,
+                        websiteId: siteId,
+                        source: window.location.href
+                    })
+                });
+                const data = await res.json();
+                return data.success ? 'Registered successfully! Check your email for exclusive early-bird offer.' : (data.message || 'Registration failed');
+            } catch(e) {
+                return 'Network error. Please try again.';
+            }
+        }
+
+        // Update User Email Function
+        async function updateUserEmail(oldEmail, newEmail) {
+            try {
+                const res = await fetch('https://techtravelthink.app.n8n.cloud/webhook/user-register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'update',
+                        oldEmail,
+                        newEmail,
+                        websiteId: siteId
+                    })
+                });
+                const data = await res.json();
+                return data.success ? 'Email updated successfully!' : (data.message || 'Update failed');
+            } catch(e) {
+                return 'Network error. Please try again.';
+            }
+        }
+
+        // Handle Register Form
+        async function handleRegister(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            
+            if (!name || !email) {
+                showStatus('registerStatus', 'Please fill in all fields.', false);
+                return;
+            }
+
+            const statusDiv = document.getElementById('registerStatus');
+            statusDiv.textContent = 'Processing...';
+            statusDiv.classList.add('show');
+
+            const result = await registerUser(email, name);
+            showStatus('registerStatus', result, result.includes('success') || result.includes('successfully'));
+            
+            if (result.includes('successfully')) {
+                document.getElementById('newsletterForm').reset();
+            }
+        }
+
+        // Handle Update Email Form
+        async function handleUpdateEmail(e) {
+            e.preventDefault();
+            const oldEmail = document.getElementById('oldEmail').value.trim();
+            const newEmail = document.getElementById('newEmail').value.trim();
+            
+            if (!oldEmail || !newEmail) {
+                showStatus('updateStatus', 'Please fill in all fields.', false);
+                return;
+            }
+
+            if (oldEmail === newEmail) {
+                showStatus('updateStatus', 'New email must be different from the old one.', false);
+                return;
+            }
+
+            const statusDiv = document.getElementById('updateStatus');
+            statusDiv.textContent = 'Updating...';
+            statusDiv.classList.add('show');
+
+            const result = await updateUserEmail(oldEmail, newEmail);
+            showStatus('updateStatus', result, result.includes('successfully'));
+            
+            if (result.includes('successfully')) {
+                document.getElementById('updateForm').reset();
+            }
+        }
+
+        // Show Status Message
+        function showStatus(elementId, message, isSuccess) {
+            const statusDiv = document.getElementById(elementId);
+            statusDiv.textContent = message;
+            statusDiv.classList.add('show');
+            statusDiv.style.color = isSuccess ? '#4CAF50' : '#f44336';
+            
+            setTimeout(() => {
+                statusDiv.classList.remove('show');
+            }, 4000);
+        }
+
+        // Handle Product Click
+        function handleProductClick(productName) {
+            alert(`${productName} added to cart! Complete your purchase during Q3 launch.`);
+        }
+
+        // Smooth scroll enhancement
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
